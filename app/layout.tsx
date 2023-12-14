@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
+import { Footer, Header, Sidebar } from "@/sections";
+// import cn from "classnames";
 
 const notoSans = Noto_Sans({ subsets: ["latin"], weight: ["300", "400", "500", "700"], display: "swap" });
 
@@ -12,7 +14,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={notoSans.className}>{children}</body>
+      <body className={notoSans.className}>
+        <Header />
+        <Sidebar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

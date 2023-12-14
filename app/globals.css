@@ -18,7 +18,57 @@
 
 }
 
+body {
+  margin: 0;
 
+  display: grid;
+  grid-template-columns: auto 230px minmax(320px, 1200px) auto;
+  grid-template-rows: auto 1fr auto;
+
+  min-height: 100vh;
+  gap: 40px 30px;
+  grid-template-areas:
+    ". header header ."
+    ". aside main ."
+    "footer footer footer footer";
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: aside;
+}
+
+main {
+  grid-area: main;
+
+  outline: none;
+  }
+  
+  /* footer {
+      grid-area: footer;
+    } */
+  
+  @media (max-width: 765px) {
+    body {
+      grid-template-columns: minmax(320px, 1fr);
+      grid-template-areas:
+        "header"
+        "main"
+        "footer";
+      gap: 10px;
+    }
+  
+    aside {
+      display: none !important;
+    }
+  
+    main {
+      padding: 15px;
+    }
+  }
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;
