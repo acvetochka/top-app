@@ -56,3 +56,29 @@ is a list of more common components and their API.
 | `children`  | `undefined` | required, any content                         |
 | `className` | `undefined` | add custom or additional css class you'd need |
 
+- ### Button
+
+| Prop        | Default     | Description                                   |
+| ----------- | ----------- | --------------------------------------------- |
+| `appearance`| `undefined` | `primary`, `ghost`                            |
+| `children`  | `undefined` | required, any content                         |
+| `className` | `undefined` | add custom or additional css class you'd need |
+| `allow`     | `none`      | `right`, `down`, `none`                       |
+
+- ### Tag 
+
+| Prop        | Default     | Description                                   |
+| ----------- | ----------- | --------------------------------------------- |
+| `children`  | `undefined` | required, any content                         |
+| `size`      | `small`     | `small`, `large`                              |    
+| `color`     | `ghost`     | `ghost`, `red`, `grey`, `green`, `accent`     |
+| `href`      | `undefined` | add href for link you'd need                  |
+| `className` | `undefined` | add custom or additional css class you'd need |
+
+- ### Rating
+
+| Props       | Default     | Description                                   |
+| ----------- | ----------- | --------------------------------------------- |
+| `isEditable`| `false`     | Use, if necessary, to edit an element         |
+| `rating`    | `undefined` | required, number from 1 to 5                  |                              |
+| `setRating` | `undefined` | function for viewing the rating status        |
