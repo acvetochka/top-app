@@ -3,7 +3,7 @@
 import { Button, Paragraph, Rating, Tag, Title } from "@/components";
 import { useState } from "react";
 
-export default function Home(): JSX.Element {
+export default async function Home() {
   const [counter, setCounter] = useState<number>(0);
   const [rating, setRating] = useState<number>(4);
 

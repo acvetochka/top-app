@@ -3,6 +3,7 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer, Header, Sidebar } from "@/sections";
 // import cn from "classnames";
+// import { API } from "./api";
 
 const notoSans = Noto_Sans({ subsets: ["latin"], weight: ["300", "400", "500", "700"], display: "swap" });
 
