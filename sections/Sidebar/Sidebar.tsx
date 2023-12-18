@@ -1,4 +1,3 @@
-// import { format } from "date-fns";
 import cn from "classnames";
 
 import styles from "./Sidebar.module.css";
