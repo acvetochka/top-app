@@ -1,19 +1,19 @@
-"use client";
+// "use client";
 
-import { Button, Paragraph, Rating, Tag, Title } from "@/components";
-import { useState } from "react";
+import { Button, Paragraph, Tag, Title } from "@/components";
+// import { useState } from "react";
 
 export default async function Home() {
-  const [counter, setCounter] = useState<number>(0);
-  const [rating, setRating] = useState<number>(4);
+  // const [counter, setCounter] = useState<number>(0);
+  // const [rating, setRating] = useState<number>(4);
 
   return (
     <main>
       <Title tag="h1">Title</Title>
-      <Title tag="h1">{counter}</Title>
-      <Button appearance="primary" arrow="right" onClick={() => setCounter((x) => x + 1)}>
+      {/* <Title tag="h1">{counter}</Title> */}
+      {/* <Button appearance="primary" arrow="right" onClick={() => setCounter((x) => x + 1)}>
         Button
-      </Button>
+      </Button> */}
       <Button appearance="ghost" arrow="down">
         Button2
       </Button>
@@ -28,7 +28,7 @@ export default async function Home() {
         Small Tag Green
       </Tag>
       <Tag color="accent">Accent Tag</Tag>
-      <Rating rating={rating} isEditable setRating={setRating} />
+      {/* <Rating rating={rating} isEditable setRating={setRating} /> */}
     </main>
   );
 }
