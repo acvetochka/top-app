@@ -31,7 +31,8 @@ export const Menu = async () => {
     return (
       <>
         {firstLevelMenu.map((m) => (
-          <div key={m.route}>
+          <li key={m.route}>
+            {/* <li> */}
             <Link href={`/${m.route}`}>
               <div
                 className={cn(styles.firstLevel, {
@@ -43,39 +44,42 @@ export const Menu = async () => {
               </div>
             </Link>
             {m.id === firstCategory && buildSecondLevel(m)}
-          </div>
+          </li>
+          //   </ul>
         ))}
       </>
     );
   };
   const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
     return (
-      <div className={styles.secondBlock}>
+      <ul className={styles.secondBlock}>
         {menu.map((m) => (
-          <div key={m._id.secondCategory}>
+          <li key={m._id.secondCategory}>
             <div className={styles.secondLevel}>{m._id.secondCategory}</div>
-            <div
+            <ul
               className={cn(styles.secondLevelBlock, {
                 [styles.secondLevelBlockOpened]: m.isOpened,
               })}
             >
               {/* <div>{menuItem.route}</div> */}
               {buildThirdLevel(m.pages, menuItem.route)}
-            </div>
-          </div>
+            </ul>
+          </li>
         ))}
-      </div>
+      </ul>
     );
   };
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
-      <Link href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, { [styles.thirdLevelActive]: true })}>
-        {p.category}
-      </Link>
+      <li>
+        <Link href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, { [styles.thirdLevelActive]: true })}>
+          {p.category}
+        </Link>
+      </li>
     ));
   };
 
   //   console.log(menu);
-  return <div className={styles.menu}>{buildFirstLevel()}</div>;
+  return <ul className={styles.menu}>{buildFirstLevel()}</ul>;
 };
