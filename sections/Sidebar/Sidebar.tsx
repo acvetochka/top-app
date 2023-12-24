@@ -2,7 +2,8 @@ import cn from "classnames";
 
 import styles from "./Sidebar.module.css";
 import { SidebarProps } from "./Sidebar.props";
-import { Menu } from "@/components/Menu/Menu";
+import { Menu } from "@/components";
+
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (

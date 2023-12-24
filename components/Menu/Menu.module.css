@@ -55,6 +55,7 @@
     list-style: none;
 
     border-left: 1px solid #DFDFDF;
+
 }
 
 .secondLevelBlock {
@@ -63,6 +64,11 @@
     padding: 0;
 
     list-style: none;
+        /* display: none; */
+        }
+        
+        .secondLevelBlockOpened {
+            display: block;
 }
 
 .thirdLevel {
