@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
-}: {
+}: // params,
+{
   children: React.ReactNode;
-  params: {
-    type: string;
-    alias: string;
-  };
+  // params: {
+  //   type: string;
+  //   alias: string;
+  // };
 }) {
   return (
     <html lang="en">
