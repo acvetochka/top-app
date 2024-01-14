@@ -1,13 +1,15 @@
 import { getMenu } from "@/api/menu";
 import { getPage } from "@/api/page";
 import { firstLevelMenu } from "@/helpers/firstLevelMenu";
+import { MenuItem } from "@/interfaces/menu.interface";
+// import { is } from "date-fns/locale";
 // import { firstLevelMenu } from "@/helpers/firstLevelMenu";
 // import { MenuItem } from "@/interfaces/menu.interface";
 // import { TopLevelCategory, TopPageModel } from "@/interfaces/page.interface";
 // import { ProductModel } from "@/interfaces/product.imterface";
 // import axios from "axios";
 import { Metadata } from "next";
-import { notFound, usePathname } from "next/navigation";
+import { notFound } from "next/navigation";
 // import { ParsedUrlQuery } from "querystring";
 
 export async function generateMetadata({ params }: { params: { alias: string } }): Promise<Metadata> {
@@ -20,7 +22,6 @@ export async function generateMetadata({ params }: { params: { alias: string } }
 // const path = usePathname();
 
 export async function generateStaticParams() {
- 
   // const firstCategoryItem = firstLevelMenu.find((m) => m.route === params.type);
   // if (!firstCategoryItem) {
   //   console.log("not found");
@@ -30,20 +31,44 @@ export async function generateStaticParams() {
   // }
 
   // const menu = await getMenu(firstCategoryItem.id);
-  const menu = await getMenu(0);
+
+  // let menu: MenuItem[] = [];
+
+  // [...firstLevelMenu].forEach(async ({ route, id }) => {
+  //   menu = await getMenu(id);
+  //   return [...menu].flatMap((item) =>
+  //     item.pages.forEach((page) => {
+  //       console.log("alias", page.alias);
+  //       console.log("type", id, route);
+  //       return { alias: page.alias, type: route };
+  //     })
+  //   );
+  // });
+
+  let menu: MenuItem[] = [];
+  [...firstLevelMenu].forEach(async ({ id }) => {
+    menu = await getMenu(id);
+  });
+  // const menu = await getMenu(0);
   return menu.flatMap((item) =>
     item.pages.map((page) => {
-      // console.log(page);
-      return { type: "courses", alias: page.alias };
+      // console.log("alias", page.alias);
+      return { alias: page.alias };
     })
   );
+
+  // return alias.map(async (a) => {
+  //   console.log("a", a);
+  //   const page = await getPage(a);
+  //   console.log("get", page);
+  //   return { type: page.firstCategory, alias: a };
+  // });
 }
 
 export default async function PageProducts({ params }: { params: { type: string; alias: string } }) {
-  
-  console.log("alias", params.alias);
+  // console.log("alias", params.alias);
   const page = await getPage(params.alias);
-  console.log(page);
+  // console.log("page", page);
   if (!page) {
     notFound();
   }
