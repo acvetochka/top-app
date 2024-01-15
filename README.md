@@ -71,7 +71,7 @@ is a list of more common components and their API.
 | ----------- | ----------- | --------------------------------------------- |
 | `children`  | `undefined` | required, any content                         |
 | `size`      | `small`     | `small`, `large`                              |    
-| `color`     | `ghost`     | `ghost`, `red`, `grey`, `green`, `accent`     |
+| `color`     | `ghost`     | `ghost`, `red`, `gray`, `green`, `accent`     |
 | `href`      | `undefined` | add href for link you'd need                  |
 | `className` | `undefined` | add custom or additional css class you'd need |
 
