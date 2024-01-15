@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 import { firstLevelMenu } from "@/helpers/firstLevelMenu";
 
 export const Menu = () => {
-  const [firstCategory, setFirstCategory] = useState<TopLevelCategory>(0);
+  const [firstCategory, setFirstCategory] = useState<TopLevelCategory>();
 
   // const firstCategory: TopLevelCategory = 0;
   // const router = useRouter();
@@ -26,20 +26,20 @@ export const Menu = () => {
     // setFirstCategory(firstCategory);
   }, [menu]);
 
-  // useEffect(() => {
-  //   // const fetchData =
-  //   (async () => {
-  //     firstLevelMenu.map(async ({ route, id }) => {
-  //       if (route === path.split("/")[1]) {
-  //         const menuData = await getMenu(id);
-  //         console.log(menuData);
-  //         setMenu(menuData);
-  //       }
-  //     });
-  //   })();
-  //   // console.log(menu);
-  //   // fetchData();
-  // }, [path]);
+  useEffect(() => {
+    // const fetchData =
+    (async () => {
+      firstLevelMenu.map(async ({ route, id }) => {
+        if (route === path.split("/")[1]) {
+          const menuData = await getMenu(id);
+          // console.log(menuData);
+          setMenu(menuData);
+        }
+      });
+    })();
+    // console.log(menu);
+    // fetchData();
+  }, [path]);
 
   // useEffect(() => {
   //   // const fetchData =
@@ -133,11 +133,11 @@ export const Menu = () => {
           // console.log(path);
           // console.log(path.split("/")[1]);
           if (m.route.includes(path.split("/")[1])) {
-            console.log(true);
+            // console.log(true);
             m.isOpened = true;
           }
           return (
-            <li key={m.route}>
+            <li key={m.route} aria-expanded={m.id == firstCategory}>
               {/* <Link href={`/${m.route}`}> */}
               <div onClick={() => openFirstLevel(m.id)}>
                 {/* <div> */}
