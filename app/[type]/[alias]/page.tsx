@@ -1,15 +1,16 @@
+// "use client";
+
 import { getMenu } from "@/api/menu";
 import { getPage } from "@/api/page";
+// import { getProduct } from "@/api/product";
 import { firstLevelMenu } from "@/helpers/firstLevelMenu";
 import { MenuItem } from "@/interfaces/menu.interface";
-// import { is } from "date-fns/locale";
-// import { firstLevelMenu } from "@/helpers/firstLevelMenu";
-// import { MenuItem } from "@/interfaces/menu.interface";
-// import { TopLevelCategory, TopPageModel } from "@/interfaces/page.interface";
-// import { ProductModel } from "@/interfaces/product.imterface";
-// import axios from "axios";
+import { TopPage } from "@/sections";
+// import { ProductModel } from "@/interfaces/product.interface";
+// import { Description } from "@/sections/Description/Description";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+// import { useEffect, useState } from "react";
 // import { ParsedUrlQuery } from "querystring";
 
 export async function generateMetadata({ params }: { params: { alias: string } }): Promise<Metadata> {
@@ -22,29 +23,6 @@ export async function generateMetadata({ params }: { params: { alias: string } }
 // const path = usePathname();
 
 export async function generateStaticParams() {
-  // const firstCategoryItem = firstLevelMenu.find((m) => m.route === params.type);
-  // if (!firstCategoryItem) {
-  //   console.log("not found");
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
-
-  // const menu = await getMenu(firstCategoryItem.id);
-
-  // let menu: MenuItem[] = [];
-
-  // [...firstLevelMenu].forEach(async ({ route, id }) => {
-  //   menu = await getMenu(id);
-  //   return [...menu].flatMap((item) =>
-  //     item.pages.forEach((page) => {
-  //       console.log("alias", page.alias);
-  //       console.log("type", id, route);
-  //       return { alias: page.alias, type: route };
-  //     })
-  //   );
-  // });
-
   let menu: MenuItem[] = [];
   [...firstLevelMenu].forEach(async ({ id }) => {
     menu = await getMenu(id);
@@ -56,23 +34,49 @@ export async function generateStaticParams() {
       return { alias: page.alias };
     })
   );
-
-  // return alias.map(async (a) => {
-  //   console.log("a", a);
-  //   const page = await getPage(a);
-  //   console.log("get", page);
-  //   return { type: page.firstCategory, alias: a };
-  // });
 }
 
 export default async function PageProducts({ params }: { params: { type: string; alias: string } }) {
   // console.log("alias", params.alias);
   const page = await getPage(params.alias);
-  // console.log("page", page);
+
   if (!page) {
     notFound();
   }
-  return <main>{page.title}</main>;
+
+  // const [products, setProducts] = useState<ProductModel[]>([]);
+  // const [firstCategory, setFirstCategory] = useState(0);
+
+  // useEffect(() => {
+  //   if (page) {
+  //     (async () => {
+  //       const prodArray = await getProduct(page.category);
+  //       if (prodArray) {
+  //         setProducts(prodArray);
+  //       }
+  //     })();
+  //     setFirstCategory(page.firstCategory);
+  //   }
+  // }, [page]);
+
+  // if (page) {
+  //   const prodArray = await getProduct(page.category);
+  //   if (prodArray) {
+  //     setProducts(prodArray);
+  //   }
+  //   setFirstCategory(page.firstCategory);
+  // }
+
+  console.log(page.category);
+  // console.log("page", page);
+
+  return (
+    <main>
+      {/* <p>{page.title}</p> */}
+      <TopPage page={page} />
+      {/* <Description firstCategory={} /> */}
+    </main>
+  );
 }
 
 // function Course({ menu, page, products }: CourseProps): JSX.Element {
