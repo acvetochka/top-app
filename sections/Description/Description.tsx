@@ -14,7 +14,7 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
       <div>{products && products.map((p) => <div key={p._id}>{p.title}</div>)}</div>
       <div className={styles.hhTitle}>
         <Title tag="h2">Вакансии - {page.category}</Title>
-        <Tag color="red">hh.ru</Tag>
+        <Tag color="red">hh.ua</Tag>
       </div>
       {page.hh && <HhData {...page.hh} />}
     </div>

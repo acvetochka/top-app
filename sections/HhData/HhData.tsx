@@ -33,13 +33,6 @@ export const HhData = ({ count, juniorSalary, middleSalary, seniorSalary }: HhDa
             </li>
           ))}
         </ul>
-        {/* <p className={styles.title}>Всего вакансий</p>
-        <span className={styles.salaryValue}>{count}</span>
-        <div className={styles.rate}>
-          <Rating />
-          <Rating />
-          <Rating />
-        </div> */}
       </Card>
     </div>
   );
