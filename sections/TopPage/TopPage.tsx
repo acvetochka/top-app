@@ -28,5 +28,9 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
     setFirstCategory(page.firstCategory);
     // }
   }, [page]);
-  return <Description firstCategory={firstCategory} products={products} page={page} />;
+  return (
+    <>
+      <Description firstCategory={firstCategory} products={products} page={page} />
+    </>
+  );
 };
