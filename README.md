@@ -82,3 +82,10 @@ is a list of more common components and their API.
 | `isEditable`| `false`     | Use, if necessary, to edit an element         |
 | `rating`    | `undefined` | required, number from 1 to 5                  |                              |
 | `setRating` | `undefined` | function for viewing the rating status        |
+
+- ### Card 
+
+| Props       | Default     | Description                                   |
+| ----------- | ----------- | --------------------------------------------- |
+| `children`  | `undefined` | required, any content                         |
+| `color`     | `white`     | `white`, `blue`                               |
