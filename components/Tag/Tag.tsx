@@ -5,7 +5,7 @@ import styles from "./Tag.module.css";
 
 export const Tag = ({ size = "small", children, color = "ghost", href, className, ...props }: TagProps): JSX.Element => {
   return (
-    <p
+    <div
       className={cn(styles.tag, className, {
         [styles.small]: size === "small",
         [styles.large]: size === "large",
@@ -17,7 +17,7 @@ export const Tag = ({ size = "small", children, color = "ghost", href, className
       })}
       {...props}
     >
-      {href ? <a>{children}</a> : <>{children}</>}
-    </p>
+      {href ? <a href={href}>{children}</a> : <>{children}</>}
+    </div>
   );
 };
