@@ -2,9 +2,9 @@ import { Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
 import { HhData } from "../HhData/HhData";
-import { TopLevelCategory } from "@/interfaces/page.interface";
+// import { TopLevelCategory } from "@/interfaces/page.interface";
 
-export const Description = ({ page, products, firstCategory }: DescriptionProps): JSX.Element => {
+export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
