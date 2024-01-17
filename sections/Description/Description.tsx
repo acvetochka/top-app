@@ -2,8 +2,9 @@ import { Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
 import { HhData } from "../HhData/HhData";
+import { TopLevelCategory } from "@/interfaces/page.interface";
 
-export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
+export const Description = ({ page, products, firstCategory }: DescriptionProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -12,11 +13,17 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
         <span>Сортировка</span>
       </div>
       <div>{products && products.map((p) => <div key={p._id}>{p.title}</div>)}</div>
-      <div className={styles.hhTitle}>
-        <Title tag="h2">Вакансии - {page.category}</Title>
-        <Tag color="red">hh.ua</Tag>
-      </div>
-      {page.hh && <HhData {...page.hh} />}
+
+      {/* {firstCategory === TopLevelCategory.Courses && <HhData {...page.hh} />} */}
+      {page.hh && (
+        <>
+          <div className={styles.hhTitle}>
+            <Title tag="h2">Вакансии - {page.category}</Title>
+            <Tag color="red">hh.ua</Tag>
+          </div>
+          <HhData {...page.hh} />
+        </>
+      )}
     </div>
   );
 };

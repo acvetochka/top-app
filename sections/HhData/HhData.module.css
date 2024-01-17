@@ -8,6 +8,11 @@
     gap: 30px;
 }
 
+@media screen and (max-width: 1200px) {
+    .hh {
+        grid-template-columns: 1fr;
+    }
+}
 .count {
     padding: 20px;
     text-align: center;
@@ -20,9 +25,7 @@
     text-align: center;
 }
 
-.salaryItem:not(:last-child) {
-    border-right: 1px solid var(--border-color);
-}
+
 
 .title {
     font-size: 20px;
@@ -49,4 +52,22 @@
         display: flex;
         gap: 10px;
         justify-content: center;
+}
+@media screen and (min-width: 641px) {
+    .salaryItem:not(:last-child) {
+        border-right: 1px solid var(--border-color);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .salary {
+        grid-template-columns: 1fr;
+        gap: 20px 0;
+    }
+
+    .salaryItem:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 20px;
+    }
+
 }
