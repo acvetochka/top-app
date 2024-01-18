@@ -1,4 +1,4 @@
-import { Tag, Title } from "@/components";
+import { Advantages, Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
 import { HhData } from "../HhData/HhData";
@@ -22,6 +22,12 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
             <Tag color="red">hh.ua</Tag>
           </div>
           <HhData {...page.hh} />
+        </>
+      )}
+      {page.advantages && page.advantages.length > 0 && (
+        <>
+          <Title tag="h2">Преимущества</Title>
+          <Advantages advantages={page.advantages} />
         </>
       )}
     </div>
