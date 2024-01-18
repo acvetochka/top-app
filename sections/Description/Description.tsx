@@ -1,7 +1,8 @@
-import { Advantages, Tag, Title } from "@/components";
+import { Advantages, Paragraph, Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
 import { HhData } from "../HhData/HhData";
+import parse from "html-react-parser";
 // import { TopLevelCategory } from "@/interfaces/page.interface";
 
 export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
@@ -30,6 +31,14 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
           <Advantages advantages={page.advantages} />
         </>
       )}
+
+      {page.seoText && <Paragraph>{parse(`${page.seoText}`)}</Paragraph>}
+      <Title tag="h2">Получаемые навыки</Title>
+      {page.tags.map((tag) => (
+        <Tag key={tag} color="accent">
+          {tag}
+        </Tag>
+      ))}
     </div>
   );
 };
