@@ -6,11 +6,11 @@ import { ProductModel } from "@/interfaces/product.interface";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Description } from "../Description/Description";
-import { HhData } from "../HhData/HhData";
+import { HhSection } from "../HhSection/HhSection";
 import parse from "html-react-parser";
 
 import styles from "./TopPage.module.css";
-import { Advantages, Tag, Title } from "@/components";
+import { Advantages, Title } from "@/components";
 import { Skills } from "../Skills/Skills";
 
 export const TopPage = ({ page }: { page: TopPageModel }) => {
@@ -37,15 +37,11 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
   return (
     <div className={styles.wrapper}>
       <Description firstCategory={firstCategory} products={products} page={page} />
-      {page.hh && (
-        <>
-          <div className={styles.hhTitle}>
-            <Title tag="h2">Вакансии - {page.category}</Title>
-            <Tag color="red">hh.ua</Tag>
-          </div>
-          <HhData {...page.hh} />
-        </>
-      )}
+      {/* {page.hh && (
+        <> */}
+      <HhSection page={page} />
+      {/* </>
+      )} */}
       {page.advantages && page.advantages.length > 0 && (
         <>
           <Title tag="h2">Преимущества</Title>

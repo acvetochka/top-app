@@ -1,6 +1,6 @@
-.filled circle {
+/* .filled circle {
     fill: var(--orange);
-}
+} */
 
 .hh {
     display: grid;
@@ -14,11 +14,22 @@
         grid-template-columns: 1fr;
     }
 }
+
 .count {
     padding: 20px;
     text-align: center;
 }
 
+.hhTitle {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    justify-items: left;
+    gap: 20px;
+    /* margin-bottom: 24px; */
+}
+
+/* 
 .salary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -26,7 +37,7 @@
     text-align: center;
 }
 
-
+ */
 
 .title {
     font-size: 20px;
@@ -42,18 +53,20 @@
     font-weight: 700;
 }
 
+/* 
 .salaryValue {
     display: inline-block;
     font-size: 26px;
     font-weight: 700;
     margin-bottom: 12px;
-    }
-    
-    .rate {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
 }
+
+.rate {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
 @media screen and (min-width: 641px) {
     .salaryItem:not(:last-child) {
         border-right: 1px solid var(--border-color);
@@ -71,4 +84,4 @@
         padding-bottom: 20px;
     }
 
-}
+} */
