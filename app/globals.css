@@ -88,6 +88,9 @@ p {
   padding: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
 /* Скидання базових властивостей у списків (ul або клас .list) */
 /* ul {
   list-style: none;

@@ -2,14 +2,15 @@ import cn from "classnames";
 
 import styles from "./Sidebar.module.css";
 import { SidebarProps } from "./Sidebar.props";
-import { Menu } from "@/components";
+import { Menu, Search } from "@/components";
 import Logo from "../../public/logo.svg";
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (
     <aside className={cn(className, styles.sidebar)} {...props}>
       <Logo className={styles.logo} />
-      <div>Поиск</div>
+      {/* <div>Поиск</div> */}
+      <Search />
       <Menu />
     </aside>
     // <footer className={cn(className, styles.footer)} {...props}>

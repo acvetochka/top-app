@@ -1,6 +1,6 @@
 // "use client";
 
-import { Button, Input, Paragraph, Tag, Title } from "@/components";
+import { Button, Input, Paragraph, Tag, Textarea, Title } from "@/components";
 // import { useState } from "react";
 
 export default async function Home() {
@@ -31,6 +31,7 @@ export default async function Home() {
       {/* <Rating rating={rating} isEditable setRating={setRating} /> */}
 
       <Input placeholder="Test" />
+      <Textarea />
     </main>
   );
 }
