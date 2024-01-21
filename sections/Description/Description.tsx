@@ -24,9 +24,9 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
     dispatchSort({ type: sort });
   }, [products]);
 
-  useEffect(() => {
-    dispatchSort((prevState: SortReducerState) => ({ ...prevState, products: productsRef.current }));
-  }, [products]);
+  // useEffect(() => {
+  //   dispatchSort((prevState: SortReducerState) => ({ ...prevState, products: productsRef.current, sort: SortEnum.Price }));
+  // }, [products]);
 
   // useEffect(() => {
   //   if (products.length > 0) {

@@ -8,15 +8,17 @@ export interface SortReducerState {
   products: ProductModel[];
 }
 
-export const sortReducer = (state: SortReducerState, action: SortAction): SortReducerState => {
+export const sortReducer: React.Reducer<SortReducerState, SortAction> = (state: SortReducerState, action: SortAction): SortReducerState => {
   switch (action.type) {
     case SortEnum.Rating:
       return {
+        ...state,
         sort: SortEnum.Rating,
         products: state.products.sort((a, b) => (a.initialRating > b.initialRating ? -1 : 1)),
       };
     case SortEnum.Price:
       return {
+        ...state,
         sort: SortEnum.Price,
         products: state.products.sort((a, b) => (a.price > b.price ? 1 : -1)),
       };
