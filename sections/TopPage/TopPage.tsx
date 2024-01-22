@@ -36,12 +36,13 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
     setFirstCategory(page.firstCategory);
     // }
   }, [page]);
+
   return (
     <div className={styles.wrapper}>
       <Description firstCategory={firstCategory} products={products} page={page} />
       {/* {page.hh && (
         <> */}
-      
+
       <HhSection page={page} />
       {/* </>
       )} */}

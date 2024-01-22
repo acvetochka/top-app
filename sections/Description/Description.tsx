@@ -4,29 +4,45 @@ import { Sort, Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
 import { SortEnum } from "@/components/Sort/Sort.props";
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { SortReducerState, sortReducer } from "@/helpers/sort.reducer";
+import { Product } from "../Product/Product";
+import { ProductModel } from "@/interfaces/product.interface";
 // import { HhData } from "../HhData/HhData";
 // import parse from "html-react-parser";
 // import { TopLevelCategory } from "@/interfaces/page.interface";
 
 export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
-  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Price });
-  const productsRef = useRef(products);
+  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products: products, sort: SortEnum.Price });
+  // const productsRef = useRef(products);
+  // const [isClient, setIsClient] = useState(false);
+  // const [sort, setSort] = useState<SortEnum>(SortEnum.Rating);
 
-  useEffect(() => {
-    productsRef.current = products;
+  // const sortedByRating = products.sort((a, b) => (a.initialRating > b.initialRating ? -1 : 1));
+  // const [sortedProducts, setSortedProducts] = useState<ProductModel[]>(sortedByRating);
+  const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort });
-  }, [sort]);
+  };
 
-  useEffect(() => {
-    // Оновлюємо products у редюсері, коли вони змінилися
-    dispatchSort({ type: sort });
-  }, [products]);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
+
+  // useEffect(() => {
+  //   productsRef.current = products;
+  //   setTimeout(() => {
+  //     dispatchSort({ type: sort });
+  //   }, 1000);
+  // }, [sort, products]);
+
+  // useEffect(() => {
+  //   // Оновлюємо products у редюсері, коли вони змінилися
+  //   dispatchSort({ type: sort });
+  // }, [products]);
 
   // useEffect(() => {
   //   dispatchSort((prevState: SortReducerState) => ({ ...prevState, products: productsRef.current, sort: SortEnum.Price }));
-  // }, [products]);
+  // }, []);
 
   // useEffect(() => {
   //   if (products.length > 0) {
@@ -40,9 +56,15 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
   // const setSort = (sort: SortEnum) => {
   //   dispatchSort({ type: sort });
   // };
-  const setSort = (newSort: SortEnum) => {
-    dispatchSort({ type: newSort });
-  };
+  // const setSort = (sort: SortEnum) => {
+  //   setSortedProducts(sort);
+  //   // dispatchSort({ type: newSort });
+  // };
+
+  if (!products) {
+    // Додайте відповідну обробку, наприклад, відображення лоадера чи іншого індікатора завантаження
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -52,7 +74,7 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
         <Sort sort={sort} setSort={setSort} />
       </div>
       {/* <div>{products && products.map((p) => <div key={p._id}>{p.title}</div>)}</div> */}
-      <div>{sortedProducts && sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}</div>
+      <div>{products && products.map((p) => <Product key={p._id} product={p} />)}</div>
     </>
   );
 };
