@@ -89,3 +89,15 @@ is a list of more common components and their API.
 | ----------- | ----------- | --------------------------------------------- |
 | `children`  | `undefined` | required, any content                         |
 | `color`     | `white`     | `white`, `blue`                               |
+
+- ### Input
+
+| Props       | Default     | Description                                   |
+| ----------- | ----------- | --------------------------------------------- |
+| `className` | `undefined` | add custom or additional css class you'd need |  
+
+- ### Textarea
+
+| Props       | Default     | Description                                   |
+| ----------- | ----------- | --------------------------------------------- |
+| `className` | `undefined` | add custom or additional css class you'd need |
