@@ -2,8 +2,8 @@ import cn from "classnames";
 
 import { ProductProps } from "./Product.props";
 import styles from "./Product.module.css";
-import { Button, Card, Divider, Rating, Tag } from "@/components";
-import { numberToPrice } from "@/helpers/numberToPrice";
+import { Button, Card, Divider, ProductPrice, Rating, Tag } from "@/components";
+// import { numberToPrice } from "@/helpers/numberToPrice";
 import { devOfNum } from "@/helpers/devOfNum";
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
@@ -13,7 +13,8 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
         <img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />
       </div>
       <div className={styles.title}>{product.title}</div>
-      <div className={styles.price}>
+      <ProductPrice product={product} />
+      {/* <div className={styles.price}>
         {numberToPrice(product.price)}
         {product.oldPrice && (
           <Tag className={styles.oldPrice} color="green">
@@ -23,7 +24,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       </div>
       <div className={styles.credit}>
         {numberToPrice(product.credit)}/<span className={styles.month}>мес</span>
-      </div>
+      </div> */}
       <div className={styles.rating}>
         <Rating rating={product.reviewAvg ?? product.initialRating} />
       </div>

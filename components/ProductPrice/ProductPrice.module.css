@@ -1,0 +1,22 @@
+.price {
+    grid-column: pricestart / priceend;
+
+}
+
+.credit {
+    grid-column: creditstart / creditend;
+}
+
+.price,
+.credit {
+    font-size: 20px;
+    align-self: flex-end;
+}
+
+.month {
+    font-size: 14px;
+}
+
+.oldPrice {
+    margin-left: 5px;
+}

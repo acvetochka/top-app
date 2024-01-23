@@ -15,13 +15,13 @@
   grid-column: titlestart / middle;
 }
 
-.price,
+/* .price, */
 .priceTitle {
   grid-column: pricestart / priceend;
 
 }
 
-.credit,
+/* .credit, */
 .creditTitle {
   grid-column: creditstart / creditend;
 }
@@ -57,7 +57,7 @@
   font-weight: 600;
   align-self: flex-end;
 }
-.price,
+/* .price,
 .credit {
   font-size: 20px;
   align-self: flex-end;
@@ -71,6 +71,7 @@
   margin-left: 5px;
 }
 
+*/
 .rating {
   align-self: flex-end;
 }
