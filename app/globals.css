@@ -28,6 +28,7 @@ body {
   grid-template-rows: auto 1fr auto;
 
   background: var(--bg-body);
+  color: var(--primary);
   min-height: 100vh;
   gap: 40px 30px;
   grid-template-areas:

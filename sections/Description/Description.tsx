@@ -1,20 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { Sort, Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
 import { SortEnum } from "@/components/Sort/Sort.props";
-import { useState } from "react";
-// import { SortReducerState, sortReducer } from "@/helpers/sort.reducer";
 import { Product } from "../Product/Product";
 import { ProductModel } from "@/interfaces/product.interface";
-// import { HhData } from "../HhData/HhData";
-// import parse from "html-react-parser";
-// import { TopLevelCategory } from "@/interfaces/page.interface";
 
 export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
-  const [sort, setSort] = useState<SortEnum>(SortEnum.Price);
-  const [sortedProducts, setSortedProducts] = useState<ProductModel[]>([]);
+  const [sort, setSort] = useState<SortEnum>(SortEnum.Rating);
+  const [sortedProducts, setSortedProducts] = useState<ProductModel[]>(products);
 
   const sortProducts = (sortType: SortEnum) => {
     let sortedArray: ProductModel[];
@@ -28,6 +24,8 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
     setSortedProducts(sortedArray);
     setSort(sortType);
   };
+
+  // sortProducts(SortEnum.Rating);
 
   // const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products: products, sort: SortEnum.Price });
   // const setSort = (sort: SortEnum) => {

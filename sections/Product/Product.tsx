@@ -2,7 +2,7 @@ import cn from "classnames";
 
 import { ProductProps } from "./Product.props";
 import styles from "./Product.module.css";
-import { Card, Rating, Tag } from "@/components";
+import { Button, Card, Rating, Tag } from "@/components";
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
@@ -26,6 +26,30 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>кредит</div>
       <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
+      <div className={styles.hr}>
+        <hr />
+      </div>
+      <div className={styles.description}>{product.description}</div>
+      <div className={styles.feature}>фичи</div>
+      <div className={styles.advBlock}>
+        <div className={styles.advantages}>
+          <h3>Преимущества</h3>
+          <div>{product.advantages}</div>
+        </div>
+        <div className={styles.disadvantages}>
+          <h3>Недостатки</h3>
+          <div>{product.disadvantages}</div>
+        </div>
+      </div>
+      <div className={styles.hr}>
+        <hr />
+      </div>
+      <div className={styles.actions}>
+        <Button appearance="primary">Узнать подробнее</Button>
+        <Button appearance="ghost" arrow={"right"}>
+          Читать отзывы
+        </Button>
+      </div>
     </Card>
   );
 };
