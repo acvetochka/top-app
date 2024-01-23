@@ -13,7 +13,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
         <img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />
       </div>
       <div className={styles.title}>{product.title}</div>
-      <ProductPrice product={product} />
+      <ProductPrice price={product.price} oldPrice={product.oldPrice} credit={product.credit} />
       {/* <div className={styles.price}>
         {numberToPrice(product.price)}
         {product.oldPrice && (

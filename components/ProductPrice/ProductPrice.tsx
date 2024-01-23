@@ -4,8 +4,8 @@ import { numberToPrice } from "@/helpers/numberToPrice";
 import { Tag } from "../Tag/Tag";
 import { ProductPriceProps } from "./ProductPrice.props";
 
-export const ProductPrice = ({ product }: ProductPriceProps) => {
-  const { price, oldPrice, credit } = product;
+export const ProductPrice = ({ price, oldPrice, credit }: ProductPriceProps) => {
+  // const { price, oldPrice, credit } = product;
   return (
     <>
       <div className={styles.price}>
