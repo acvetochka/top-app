@@ -30,6 +30,7 @@
 .rateTitle {
   grid-column: ratestart / end;
 }
+
 .hr,
 .description {
   grid-column: start / end;
