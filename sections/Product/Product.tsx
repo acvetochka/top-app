@@ -4,6 +4,7 @@ import { ProductProps } from "./Product.props";
 import styles from "./Product.module.css";
 import { Button, Card, Divider, Rating, Tag } from "@/components";
 import { numberToPrice } from "@/helpers/numberToPrice";
+import { devOfNum } from "@/helpers/devOfNum";
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
@@ -35,7 +36,9 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       </div>
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
+      <div className={styles.rateTitle}>
+        {product.reviewCount} {devOfNum(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
+      </div>
       <Divider className={styles.hr} />
       <div className={styles.description}>{product.description}</div>
       <div className={styles.feature}>фичи</div>
