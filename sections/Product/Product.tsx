@@ -28,7 +28,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       </div>
       <div className={styles.tags}>
         {product.categories.map((c) => (
-          <Tag key={c} color="ghost">
+          <Tag className={styles.category} key={c} color="ghost">
             {c}
           </Tag>
         ))}
@@ -40,19 +40,23 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <div className={styles.description}>{product.description}</div>
       <div className={styles.feature}>фичи</div>
       <div className={styles.advBlock}>
-        <div className={styles.advantages}>
-          <h3>Преимущества</h3>
-          <div>{product.advantages}</div>
-        </div>
-        <div className={styles.disadvantages}>
-          <h3>Недостатки</h3>
-          <div>{product.disadvantages}</div>
-        </div>
+        {product.advantages && (
+          <div className={styles.advantages}>
+            <h3 className={styles.advTitle}>Преимущества</h3>
+            <div>{product.advantages}</div>
+          </div>
+        )}
+        {product.disadvantages && (
+          <div className={styles.disadvantages}>
+            <h3 className={styles.advTitle}>Недостатки</h3>
+            <div>{product.disadvantages}</div>
+          </div>
+        )}
       </div>
       <Divider className={styles.hr} />
       <div className={styles.actions}>
         <Button appearance="primary">Узнать подробнее</Button>
-        <Button appearance="ghost" arrow={"right"}>
+        <Button appearance="ghost" arrow={"right"} className={styles.reviewButton}>
           Читать отзывы
         </Button>
       </div>

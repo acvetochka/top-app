@@ -4,4 +4,6 @@
 
   border: none;
   background-color: var(--border-color);
+  margin-top: 20px;
+    margin-bottom: 20px;
 }
