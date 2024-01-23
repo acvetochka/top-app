@@ -2,7 +2,7 @@ import cn from "classnames";
 
 import { ProductProps } from "./Product.props";
 import styles from "./Product.module.css";
-import { Button, Card, Divider, ProductFeatures, ProductPrice, Rating, Tag } from "@/components";
+import { Button, Card, Divider, ProductAdvantages, ProductFeatures, ProductPrice, Rating, Tag } from "@/components";
 // import { numberToPrice } from "@/helpers/numberToPrice";
 import { devOfNum } from "@/helpers/devOfNum";
 
@@ -43,6 +43,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <Divider className={styles.hr} />
       <div className={styles.description}>{product.description}</div>
       <ProductFeatures characteristics={product.characteristics} />
+      <ProductAdvantages advantages={product.advantages} disadvantages={product.disadvantages} />
       {/* <div className={styles.feature}>
         {product.characteristics.map((c) => (
           <div className={styles.charact} key={c.name}>
@@ -52,7 +53,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
           </div>
         ))}
       </div> */}
-      <div className={styles.advBlock}>
+      {/* <div className={styles.advBlock}>
         {product.advantages && (
           <div className={styles.advantages}>
             <h3 className={styles.advTitle}>Преимущества</h3>
@@ -65,7 +66,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
             <div>{product.disadvantages}</div>
           </div>
         )}
-      </div>
+      </div> */}
       <Divider className={styles.hr} />
       <div className={styles.actions}>
         <Button appearance="primary">Узнать подробнее</Button>

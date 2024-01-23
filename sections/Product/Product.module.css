@@ -42,9 +42,11 @@
 
 */
 
-.advBlock {
+/* .advBlock {
   grid-column: middle / end;
 }
+
+*/
 
 .actions {
   grid-column: start / end;
@@ -97,7 +99,7 @@
   margin-left: 20px;
 }
 
-.advBlock {
+/* .advBlock {
   font-size: 16px;
 }
 
@@ -116,6 +118,8 @@
   border-left: 2px solid var(--orange);
   padding-left: 15px;
 }
+
+*/
 /* .charact {
   display: grid;
   grid-template-columns: auto 1fr auto;
