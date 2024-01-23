@@ -36,9 +36,11 @@
   grid-column: start / end;
 }
 
-.feature {
+/* .feature {
   grid-column: start / middle;
 }
+
+*/
 
 .advBlock {
   grid-column: middle / end;
@@ -114,7 +116,7 @@
   border-left: 2px solid var(--orange);
   padding-left: 15px;
 }
-.charact {
+/* .charact {
   display: grid;
   grid-template-columns: auto 1fr auto;
   padding-right: 60px;
@@ -132,3 +134,4 @@
   border-bottom: 1px dashed var(--border-color);
   margin-bottom: 5px;
 }
+*/

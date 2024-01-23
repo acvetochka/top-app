@@ -1,0 +1,22 @@
+.feature {
+    grid-column: start / middle;
+}
+
+.charact {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding-right: 60px;
+    font-size: 16px;
+    line-height: 2;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.charactName {
+    font-weight: bold;
+}
+
+.charactDots {
+    border-bottom: 1px dashed var(--border-color);
+    margin-bottom: 5px;
+}
