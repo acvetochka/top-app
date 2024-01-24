@@ -20,3 +20,9 @@
     border-bottom: 1px dashed var(--border-color);
     margin-bottom: 5px;
 }
+@media screen and (max-width: 1320px) {
+    .feature {
+        grid-area: feature;
+        margin-bottom: 20px;
+    }
+}

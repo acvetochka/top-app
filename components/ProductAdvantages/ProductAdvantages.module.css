@@ -21,3 +21,8 @@
     border-left: 2px solid var(--orange);
     padding-left: 15px;
 }
+@media screen and (max-width: 1320px) {
+    .advBlock {
+        grid-area: advBlock;
+    }
+}

@@ -1,4 +1,4 @@
-// import cn from "classnames";
+import cn from "classnames";
 import Image from "next/image";
 
 import { ProductProps } from "./Product.props";
@@ -33,7 +33,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <div className={styles.description}>{product.description}</div>
       <ProductFeatures characteristics={product.characteristics} />
       <ProductAdvantages advantages={product.advantages} disadvantages={product.disadvantages} />
-      <Divider className={styles.hr} />
+      <Divider className={cn(styles.hr, styles.hr2)} />
       <div className={styles.actions}>
         <Button appearance="primary">Узнать подробнее</Button>
         <Button appearance="ghost" arrow={"right"} className={styles.reviewButton}>

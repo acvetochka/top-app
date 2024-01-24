@@ -1,5 +1,6 @@
 .price {
     grid-column: pricestart / priceend;
+    white-space: nowrap;
 
 }
 
@@ -19,4 +20,21 @@
 
 .oldPrice {
     margin-left: 5px;
+}
+@media screen and (max-width: 1320px) {
+    .price {
+        grid-area: price;
+    }
+
+    .credit {
+        grid-area: credit;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .price,
+    .credit {
+        margin-bottom: 10px;
+    }
 }
