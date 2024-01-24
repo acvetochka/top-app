@@ -1,30 +1,19 @@
-import cn from "classnames";
+// import cn from "classnames";
+import Image from "next/image";
 
 import { ProductProps } from "./Product.props";
-import styles from "./Product.module.css";
 import { Button, Card, Divider, ProductAdvantages, ProductFeatures, ProductPrice, Rating, Tag } from "@/components";
-// import { numberToPrice } from "@/helpers/numberToPrice";
 import { devOfNum } from "@/helpers/devOfNum";
+import styles from "./Product.module.css";
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
     <Card className={styles.product}>
       <div className={styles.logo}>
-        <img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />
+        <Image src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} width={70} height={70} />
       </div>
       <div className={styles.title}>{product.title}</div>
       <ProductPrice price={product.price} oldPrice={product.oldPrice} credit={product.credit} />
-      {/* <div className={styles.price}>
-        {numberToPrice(product.price)}
-        {product.oldPrice && (
-          <Tag className={styles.oldPrice} color="green">
-            {numberToPrice(product.price - product.oldPrice)}
-          </Tag>
-        )}
-      </div>
-      <div className={styles.credit}>
-        {numberToPrice(product.credit)}/<span className={styles.month}>мес</span>
-      </div> */}
       <div className={styles.rating}>
         <Rating rating={product.reviewAvg ?? product.initialRating} />
       </div>
@@ -44,29 +33,6 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <div className={styles.description}>{product.description}</div>
       <ProductFeatures characteristics={product.characteristics} />
       <ProductAdvantages advantages={product.advantages} disadvantages={product.disadvantages} />
-      {/* <div className={styles.feature}>
-        {product.characteristics.map((c) => (
-          <div className={styles.charact} key={c.name}>
-            <span className={styles.charactName}>{c.name}</span>
-            <span className={styles.charactDots}></span>
-            <span className={styles.charactValue}>{c.value}</span>
-          </div>
-        ))}
-      </div> */}
-      {/* <div className={styles.advBlock}>
-        {product.advantages && (
-          <div className={styles.advantages}>
-            <h3 className={styles.advTitle}>Преимущества</h3>
-            <div>{product.advantages}</div>
-          </div>
-        )}
-        {product.disadvantages && (
-          <div className={styles.disadvantages}>
-            <h3 className={styles.advTitle}>Недостатки</h3>
-            <div>{product.disadvantages}</div>
-          </div>
-        )}
-      </div> */}
       <Divider className={styles.hr} />
       <div className={styles.actions}>
         <Button appearance="primary">Узнать подробнее</Button>

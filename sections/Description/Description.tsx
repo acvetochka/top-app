@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sort, Tag, Title } from "@/components";
 import { DescriptionProps } from "./Description.props";
 import styles from "./Description.module.css";
@@ -9,8 +9,10 @@ import { Product } from "../Product/Product";
 import { ProductModel } from "@/interfaces/product.interface";
 
 export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
+  const sortedByRating = [...products].sort((a, b) => (a.initialRating > b.initialRating ? -1 : 1));
+
   const [sort, setSort] = useState<SortEnum>(SortEnum.Rating);
-  const [sortedProducts, setSortedProducts] = useState<ProductModel[]>(products);
+  const [sortedProducts, setSortedProducts] = useState<ProductModel[]>(sortedByRating);
 
   const sortProducts = (sortType: SortEnum) => {
     let sortedArray: ProductModel[];
@@ -25,6 +27,20 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
     setSort(sortType);
   };
 
+  useEffect(() => {
+    // switch (sort) {
+    //   case SortEnum.Rating:
+    //     sortProducts(SortEnum.Rating);
+    //     break;
+    //   case SortEnum.Price:
+    //     sortProducts(SortEnum.Price);
+    //     break;
+    //   default:
+    //     sortProducts(SortEnum.Rating);
+    // }
+    sortProducts(sort);
+    // setSortedProducts(sortedByRating);
+  }, [sort]);
   // sortProducts(SortEnum.Rating);
 
   // const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products: products, sort: SortEnum.Price });
@@ -42,7 +58,7 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
         <Sort sort={sort} setSort={sortProducts} />
       </div>
       {/* <div>{products && products.map((p) => <div key={p._id}>{p.title}</div>)}</div> */}
-      <div>{sortedProducts && sortedProducts.map((p) => <Product key={p._id} product={p} />)}</div>
+      <div>{products && sortedProducts.map((p) => <Product key={p._id} product={p} />)}</div>
     </>
   );
 };
