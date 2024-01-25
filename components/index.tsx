@@ -15,3 +15,4 @@ export * from "./Divider/Divider";
 export * from "./ProductPrice/ProductPrice";
 export * from "./ProductFeatures/ProductFeatures";
 export * from "./ProductAdvantages/ProductAdvantages";
+export * from "./Review/Review";

@@ -1,0 +1,4 @@
+.review {
+    display: grid;
+    grid-template-columns: [start] auto 1fr auto auto auto;
+}
