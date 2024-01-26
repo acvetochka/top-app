@@ -58,3 +58,8 @@
         grid-column: start / end;
     }
 }
+@media screen and (max-width: 640px) {
+    .reviewForm {
+        grid-template-columns: [start] 1fr [end];
+    }
+}
