@@ -4,7 +4,7 @@ import cn from "classnames";
 import Image from "next/image";
 
 import { ProductProps } from "./Product.props";
-import { Button, Card, Divider, ProductAdvantages, ProductFeatures, ProductPrice, Rating, Review, Tag } from "@/components";
+import { Button, Card, Divider, ProductAdvantages, ProductFeatures, ProductPrice, Rating, Review, ReviewForm, Tag } from "@/components";
 import { devOfNum } from "@/helpers/devOfNum";
 import styles from "./Product.module.css";
 import { useState } from "react";
@@ -55,8 +55,12 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
         })}
       >
         {product.reviews.map((r) => (
-          <Review key={r._id} review={r} />
+          <>
+            <Review key={r._id} review={r} />
+            <Divider />
+          </>
         ))}
+        <ReviewForm productId={product._id} />
       </Card>
     </>
   );

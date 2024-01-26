@@ -25,4 +25,7 @@
         grid-area: feature;
         margin-bottom: 20px;
     }
+.charact {
+    padding-right: 0;
+}
 }
