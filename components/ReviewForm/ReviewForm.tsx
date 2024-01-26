@@ -5,7 +5,7 @@ import { Input } from "../Input/Input";
 import { Rating } from "../Rating/Rating";
 import { Textarea } from "../Textarea/Textarea";
 import { Button } from "../Button/Button";
-import CloseIcon from "@/public/close.svg";
+import CloseIcon from "@/public/closeReview.svg";
 
 export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) => {
   return (
