@@ -25,7 +25,7 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) 
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.reviewForm, className)} {...props}>
         <Input {...register("name", { required: { value: true, message: "Заполните имя" } })} placeholder="Имя" error={errors.name} />
-        <Input {...register("title")} placeholder="Заголовок отзыва" className={styles.title} />
+        <Input {...register("title", { required: { value: true, message: "Заполните заголовок" } })} placeholder="Заголовок отзыва" className={styles.title} error={errors.title} />
         <div className={styles.rating}>
           <span>Оценка</span>
           <Controller control={control} name="rating" render={({ field }) => <Rating isEditable rating={field.value} ref={field.ref} setRating={field.onChange} />} />
