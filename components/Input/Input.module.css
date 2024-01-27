@@ -14,3 +14,19 @@
 .input ::placeholder {
   color: var(--placeholder-color);
 }
+.error {
+  border: 1px solid var(--orange);
+  outline: 1px solid var(--orange);
+  ;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: var(--orange);
+}
