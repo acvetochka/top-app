@@ -20,6 +20,5 @@ export const Review = ({ review, className, ...props }: ReviewProps) => {
       </div>
       <div className={styles.description}>{description}</div>
     </div>
-    // </Card>
   );
 };
