@@ -14,6 +14,7 @@
 .input ::placeholder {
   color: var(--placeholder-color);
 }
+
 .error {
   border: 1px solid var(--orange);
   outline: 1px solid var(--orange);
