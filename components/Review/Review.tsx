@@ -1,6 +1,4 @@
-import { Card } from "../Card/Card";
 import styles from "./Review.module.css";
-import cn from "classnames";
 import { ReviewProps } from "./Review.props";
 import UserIcon from "@/public/reviewUser.svg";
 import { format } from "date-fns";
@@ -10,14 +8,6 @@ import { Rating } from "../Rating/Rating";
 export const Review = ({ review, className, ...props }: ReviewProps) => {
   const { name, title, description, createdAt, rating } = review;
   return (
-    // <Card
-    //   color="blue"
-    //   className={cn(styles.reviews, {
-    //     [styles.opened]: isReviewOpened,
-    //     [styles.closed]: !isReviewOpened,
-    //   })}
-    //   //   {...props}
-    // >
     <div className={styles.review} {...props}>
       <UserIcon />
       <div className={styles.title}>
