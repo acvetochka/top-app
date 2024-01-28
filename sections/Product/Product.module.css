@@ -186,6 +186,9 @@
     grid-area: rateTitle;
   }
 
+    .rateTitle a {
+      color: var(--accent);
+    }
   .hr {
     grid-area: hr;
   }
