@@ -13,6 +13,7 @@ import { IReviewForm, IReviewSendResponse } from "./ReviewForm.interface";
 import axios from "axios";
 import { API } from "@/app/api";
 import { useState } from "react";
+import { ErrorProps } from "next/error";
 
 export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) => {
   const {
@@ -23,7 +24,7 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) 
     reset,
   } = useForm<IReviewForm>();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [error, setIsError] = useState<string>();
+  const [error, setError] = useState<string>();
 
   const onSubmit = async (formData: IReviewForm) => {
     try {
@@ -33,10 +34,10 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) 
         setIsSuccess(true);
         reset();
       } else {
-        setIsError("Что-то пошло не так");
+        setError("Что-то пошло не так");
       }
     } catch (error) {
-      setIsError(error.message);
+      setError(error.message);
     }
   };
 
@@ -60,13 +61,14 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) 
           <div className={cn(styles.panel, styles.success)}>
             <div className={styles.successTitle}>Ваш отзыв отправлен</div>
             <div>Спасибо, ваш отзыв будет опубликован после проверки.</div>
-            <CloseIcon className={styles.close} />
+            <CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
           </div>
         )}
         {error && (
           <div className={cn(styles.panel, styles.error)}>
+            {error}
             Что-то пошло не так, попробуйте обновить страницу
-            <CloseIcon className={styles.close} />
+            <CloseIcon className={styles.close} onClick={() => setError(undefined)} />
           </div>
         )}
       </div>
