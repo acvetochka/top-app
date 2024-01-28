@@ -30,7 +30,7 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps) 
           <span>Оценка</span>
           <Controller control={control} name="rating" render={({ field }) => <Rating isEditable rating={field.value} ref={field.ref} setRating={field.onChange} />} />
         </div>
-        <Textarea {...register("description")} placeholder="Текст отзыва" className={styles.description} />
+        <Textarea {...register("description", { required: { value: true, message: "Заполните описание" } })} placeholder="Текст отзыва" className={styles.description} error={errors.description} />
         <div className={styles.submit}>
           <Button appearance="primary">Отправить</Button>
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
