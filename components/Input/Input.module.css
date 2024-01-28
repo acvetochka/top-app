@@ -18,7 +18,6 @@
 .error {
   border: 1px solid var(--orange);
   outline: 1px solid var(--orange);
-  ;
 }
 
 .inputWrapper {
