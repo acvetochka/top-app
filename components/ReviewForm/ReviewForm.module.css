@@ -26,14 +26,20 @@
     gap: 20px;
 }
 
-.success {
-    background: var(--light-green);
+.panel {
     padding: 20px;
     position: relative;
     border-radius: 5px;
     margin-top: 20px;
 }
 
+.success {
+    background: var(--light-green);
+}
+
+.error {
+    background: var(--light-red);
+}
 .successTitle {
     font-weight: bold;
 }
@@ -45,6 +51,9 @@
     cursor: pointer;
 }
 
+.error .close path {
+    stroke: var(--orange);
+}
 @media screen and (max-width: 1100px) {
     .reviewForm {
         grid-template-columns: [start] 1fr 1fr [end];
