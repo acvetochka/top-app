@@ -12,14 +12,14 @@ import { sortReducer } from "@/helpers/sort.reducer";
 export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
   // const sortedByRating = [...products].sort((a, b) => (a.initialRating > b.initialRating ? -1 : 1));
 
-  const [{ products: sortedProducts, sort }, dispathSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
+  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
 
   const sortProducts = (sort: SortEnum) => {
-    dispathSort({ type: sort });
+    dispatchSort({ type: sort });
   };
 
   useEffect(() => {
-    dispathSort({ type: "reset", initialState: products });
+    dispatchSort({ type: "reset", initialState: products });
   }, [products]);
 
   // const [sort, setSort] = useState<SortEnum>(SortEnum.Rating);
@@ -70,7 +70,7 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
         <Sort sort={sort} setSort={sortProducts} />
       </div>
       {/* <div>{products && products.map((p) => <div key={p._id}>{p.title}</div>)}</div> */}
-      <div>{products && sortedProducts.map((p) => <Product key={p._id} product={p} />)}</div>
+      <div>{products && sortedProducts.map((p) => <Product layout key={p._id} product={p} />)}</div>
     </>
   );
 };

@@ -6,6 +6,7 @@
 
 .credit {
     grid-column: creditstart / creditend;
+    white-space: nowrap;
 }
 
 .price,
