@@ -56,7 +56,7 @@ main {
       grid-area: footer;
     } */
   
-  @media (max-width: 765px) {
+        @media (max-width: 825px) {
     body {
       grid-template-columns: minmax(320px, 1fr);
       grid-template-areas:
