@@ -12,6 +12,7 @@ import parse from "html-react-parser";
 import styles from "./TopPage.module.css";
 import { Advantages, Title } from "@/components";
 import { Skills } from "../Skills/Skills";
+import { useScrollY } from "@/hooks/useScrollY";
 // import { sortReducer } from "@/helpers/sort.reducer";
 
 export const TopPage = ({ page }: { page: TopPageModel }) => {
@@ -19,6 +20,7 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
   const [firstCategory, setFirstCategory] = useState(0);
   // const [{ products: sortedProducts }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
 
+  const y = useScrollY();
   if (!page || !products) {
     notFound();
   }
@@ -39,6 +41,7 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
 
   return (
     <div className={styles.wrapper}>
+      {y}
       <Description firstCategory={firstCategory} products={products} page={page} />
       {/* {page.hh && (
         <> */}
