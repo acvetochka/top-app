@@ -2,16 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import cn from "classnames";
 
 import { getMenu } from "@/api/menu";
 import { FirstLevelMenuItem, MenuItem, PageItem } from "@/interfaces/menu.interface";
-
 import { TopLevelCategory } from "@/interfaces/page.interface";
-import styles from "./Menu.module.css";
-import cn from "classnames";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { firstLevelMenu } from "@/helpers/firstLevelMenu";
+import styles from "./Menu.module.css";
 
 export const Menu = () => {
   const [firstCategory, setFirstCategory] = useState<TopLevelCategory>();

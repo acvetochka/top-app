@@ -1,8 +1,8 @@
 import cn from "classnames";
 
 import { ButtonProps } from "./Button.props";
-import styles from "./Button.module.css";
 import ArrowIcon from "./arrow.svg";
+import styles from "./Button.module.css";
 
 export const Button = ({ appearance, children, arrow = "none", className, ...props }: ButtonProps): JSX.Element => {
   return (
