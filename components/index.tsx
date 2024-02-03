@@ -17,3 +17,4 @@ export * from "./ProductFeatures/ProductFeatures";
 export * from "./ProductAdvantages/ProductAdvantages";
 export * from "./Review/Review";
 export * from "./ReviewForm/ReviewForm";
+export * from "./ScrollUp/ScrollUp";

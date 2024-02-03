@@ -10,7 +10,7 @@ import { HhSection } from "../HhSection/HhSection";
 import parse from "html-react-parser";
 
 import styles from "./TopPage.module.css";
-import { Advantages, Title } from "@/components";
+import { Advantages, ScrollUp, Title } from "@/components";
 import { Skills } from "../Skills/Skills";
 import { useScrollY } from "@/hooks/useScrollY";
 // import { sortReducer } from "@/helpers/sort.reducer";
@@ -41,7 +41,8 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
 
   return (
     <div className={styles.wrapper}>
-      {y}
+      {/* {y} */}
+      <ScrollUp />
       <Description firstCategory={firstCategory} products={products} page={page} />
       {/* {page.hh && (
         <> */}
