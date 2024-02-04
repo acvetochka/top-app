@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={notoSans.className}>
-        {/* <Header /> */}
-        <Sidebar />
+        <Header />
+        <Sidebar className='aside'/>
         {children}
         <Footer />
       </body>

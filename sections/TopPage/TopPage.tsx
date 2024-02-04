@@ -26,30 +26,20 @@ export const TopPage = ({ page }: { page: TopPageModel }) => {
   }
 
   useEffect(() => {
-    // if (page) {
     (async () => {
       const prodArray = await getProduct(page.category);
-      //   console.log("category", prodArray);
       if (prodArray) {
         setProducts(prodArray);
-        // console.log("category", prodArray);
       }
     })();
     setFirstCategory(page.firstCategory);
-    // }
   }, [page]);
 
   return (
     <div className={styles.wrapper}>
-      {/* {y} */}
       <ScrollUp />
       <Description firstCategory={firstCategory} products={products} page={page} />
-      {/* {page.hh && (
-        <> */}
-
       <HhSection page={page} />
-      {/* </>
-      )} */}
       {page.advantages && page.advantages.length > 0 && (
         <>
           <Title tag="h2">Преимущества</Title>

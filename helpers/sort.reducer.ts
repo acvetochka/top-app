@@ -9,7 +9,6 @@ export interface SortReducerState {
 }
 
 export const sortReducer: React.Reducer<SortReducerState, SortAction> = (state: SortReducerState, action: SortAction): SortReducerState => {
-  console.log("Current state:", state);
   // if (!state.products) {
   //   // Якщо `products` не ініціалізований, встановлюємо його як пустий масив
   //   state = { ...state, products: [] };
