@@ -18,3 +18,4 @@ export * from "./ProductAdvantages/ProductAdvantages";
 export * from "./Review/Review";
 export * from "./ReviewForm/ReviewForm";
 export * from "./ScrollUp/ScrollUp";
+export * from "./ButtonIcon/ButtonIcon";
