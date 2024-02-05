@@ -38,7 +38,7 @@
     cursor: pointer;
     text-transform: uppercase;
 
-    color: var(--gray-dark);
+    color: var(--secondary);
     border: none;
 
     background: none;
