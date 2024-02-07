@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, KeyboardEvent } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -51,47 +51,15 @@ export const Menu = () => {
   }, [menu]);
 
   useEffect(() => {
-    // const fetchData =
     (async () => {
       firstLevelMenu.map(async ({ route, id }) => {
         if (route === path.split("/")[1]) {
           const menuData = await getMenu(id);
-          // console.log(menuData);
           setMenu(menuData);
         }
       });
     })();
-    // console.log(menu);
-    // fetchData();
   }, [path]);
-
-  // useEffect(() => {
-  //   // const fetchData =
-  //   (async () => {
-  //     firstLevelMenu.map(async ({ id }) => {
-  //       const menuData = await getMenu(id);
-  //       console.log(menuData);
-  //       setMenu(menuData);
-  //     });
-  //   })();
-  //   // console.log(menu);
-  //   // fetchData();
-  // }, []);
-
-  // console.log(firstLevelMenu);
-  // const firstCategoryItem = firstLevelMenu.find((m) => m.route === path.split("/")[0]);
-  // if (!firstCategoryItem) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
-
-  // console.log(firstCategoryItem.id);
-
-  // const menu = await getMenu(0);
-  // console.log("menu", menu);
-  // console.log("firstLevel", firstLevelMenu);
-  // const { menu, setMenu, firstCategory } = useContext(AppContext);
 
   const openSecondLevel = (secondCategory: string) => {
     // console.log(firstCategory);
@@ -101,13 +69,6 @@ export const Menu = () => {
           if (m._id.secondCategory === secondCategory) {
             m.isOpened = !m.isOpened;
           }
-          // else {
-          //   m.isOpened = false;
-          //   // if (m.isOpened) {
-          //   //   m.isOpened = !m.isOpened;
-          //   // }
-          // }
-          // console.log(m);
           return m;
         })
       );
