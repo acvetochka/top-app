@@ -7,7 +7,7 @@ import { ProductProps } from "./Product.props";
 import { Button, Card, Divider, ProductAdvantages, ProductFeatures, ProductPrice, Rating, Review, ReviewForm, Tag } from "@/components";
 import { devOfNum } from "@/helpers/devOfNum";
 import styles from "./Product.module.css";
-import { ForwardedRef, forwardRef, useRef, useState } from "react";
+import { ForwardedRef, forwardRef, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 export const Product = motion(
@@ -22,11 +22,19 @@ export const Product = motion(
 
     const scrollToReview = () => {
       setIsReviewOpened(true);
-      reviewRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      setTimeout(() => {
+        reviewRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 1000);
+      reviewRef.current?.focus();
     };
+
+    useEffect(() => {
+      setIsReviewOpened(isReviewOpened);
+    }, [isReviewOpened]);
+
     return (
       <div className={className} {...props} ref={ref}>
         <Card className={styles.product}>
