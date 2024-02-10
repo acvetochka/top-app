@@ -6,10 +6,18 @@
   fill: var(--accent);
 }
 
-.star svg {
+.starItem {
   margin-right: 5px;
 }
 
+.star {
+  display: inline-block;
+  height: 20px;
+}
+
+/* .star svg {
+  margin-right: 5px;
+} */
 .editable {
   cursor: pointer
 }
