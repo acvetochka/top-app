@@ -24,10 +24,14 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
     <>
       <div className={styles.title}>
         <Title tag="h1">{page.title}</Title>
-        {products && <Tag color="gray">{products.length}</Tag>}
+        {products && (
+          <Tag color="gray" aria-label={products.length + 'элементов'}>
+            {products.length}
+          </Tag>
+        )}
         <Sort sort={sort} setSort={sortProducts} />
       </div>
-      <div>{products && sortedProducts.map((p) => <Product layout key={p._id} product={p} />)}</div>
+      <div>{products && sortedProducts.map(p => <Product layout key={p._id} product={p} />)}</div>
     </>
   );
 };
