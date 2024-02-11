@@ -75,6 +75,9 @@ export const Product = motion(
               credit={product.credit}
             />
             <div className={styles.rating}>
+              <span className="visualyHidden">
+                {'рейтинг' + (product.reviewAvg ?? product.initialRating)}
+              </span>
               <Rating rating={product.reviewAvg ?? product.initialRating} />
             </div>
             <div className={styles.tags}>
@@ -84,8 +87,12 @@ export const Product = motion(
                 </Tag>
               ))}
             </div>
-            <div className={styles.priceTitle}>цена</div>
-            <div className={styles.creditTitle}>кредит</div>
+            <div className={styles.priceTitle} aria-hidden={true}>
+              цена
+            </div>
+            <div className={styles.creditTitle} aria-hidden={true}>
+              кредит
+            </div>
             <div className={styles.rateTitle}>
               <a href="#ref" onClick={scrollToReview} onKeyDown={handleKeyDown}>
                 {product.reviewCount}
