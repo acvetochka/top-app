@@ -16,7 +16,7 @@ export const Rating = forwardRef(
 
     useEffect(() => {
       constructRating(rating);
-    }, [rating]);
+    }, [rating, tabIndex]);
 
     const computeFocus = (r: number, i: number): number => {
       if (!isEditable) {
