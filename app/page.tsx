@@ -17,7 +17,7 @@ export default async function Home() {
     <main>
       <Title tag="h1">Title</Title>
       {/* <Title tag="h1">{counter}</Title> */}
-      {/* <Button appearance="primary" arrow="right" onClick={() => setCounter((x) => x + 1)}>
+      {/* <Button appearance="primary" arrow="right" onClick={() => setCounter((x) => x + 1)}> 
         Button
       </Button> */}
       <Button appearance="ghost" arrow="down">

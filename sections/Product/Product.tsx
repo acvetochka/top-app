@@ -68,7 +68,7 @@ export const Product = motion(
                 height={70}
               />
             </div>
-            <div className={styles.title}>{product.title}</div>
+            <h2 className={styles.title}>{product.title}</h2>
             <ProductPrice
               price={product.price}
               oldPrice={product.oldPrice}
@@ -76,9 +76,9 @@ export const Product = motion(
             />
             <div className={styles.rating}>
               <span className="visualyHidden">
-                {'рейтинг' + (product.reviewAvg ?? product.initialRating)}
+                {'рейтинг' + Math.round(product.reviewAvg ?? product.initialRating)}
               </span>
-              <Rating rating={product.reviewAvg ?? product.initialRating} />
+              <Rating rating={Math.round(product.reviewAvg ?? product.initialRating)} />
             </div>
             <div className={styles.tags}>
               {product.categories.map(c => (
@@ -114,6 +114,7 @@ export const Product = motion(
                 arrow={isReviewOpened ? 'down' : 'right'}
                 className={styles.reviewButton}
                 onClick={() => setIsReviewOpened(!isReviewOpened)}
+              aria-expanded={isReviewOpened}
               >
                 Читать отзывы
               </Button>

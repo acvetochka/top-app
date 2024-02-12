@@ -207,5 +207,5 @@ export const Menu = () => {
   };
 
   //   console.log(menu);
-  return <nav>{buildFirstLevel()}</nav>;
+  return <nav role="navigation">{buildFirstLevel()}</nav>;
 };

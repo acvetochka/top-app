@@ -71,11 +71,11 @@ export default async function PageProducts({ params }: { params: { type: string;
   // console.log("page", page);
 
   return (
-    <main>
-      {/* <p>{page.title}</p> */}
+    // <main>
+
       <TopPage page={page} />
-      {/* <Description firstCategory={} /> */}
-    </main>
+
+    // </main>
   );
 }
 

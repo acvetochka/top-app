@@ -48,7 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <Sidebar className="aside" />
         {/* <div> */}
+        <main role="main">
         {children}
+        </main>
         {/* </div> */}
         <Footer />
       </body>

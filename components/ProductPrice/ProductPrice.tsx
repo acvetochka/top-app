@@ -21,8 +21,8 @@ export const ProductPrice = ({ price, oldPrice, credit }: ProductPriceProps) => 
         )}
       </div>
       <div className={styles.credit}>
-        <span className="visualyHidden">Кредит</span>
-        {numberToPrice(credit)}/<span className={styles.month}>мес</span>
+        <span className="visualyHidden">Кредит {numberToPrice(credit)} в месяц</span>
+        <span aria-hidden={true}>{numberToPrice(credit)}/<span className={styles.month}>мес</span></span>
       </div>
     </>
   );

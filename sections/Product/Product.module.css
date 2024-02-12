@@ -28,6 +28,7 @@
 
 .rating,
 .rateTitle {
+  position: relative;
   grid-column: ratestart / end;
 }
 
