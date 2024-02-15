@@ -2,6 +2,13 @@
     list-style: none;
     padding: 0;
 }
+
+.nav {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .firstLevel {
     display: grid;
     align-items: center;
@@ -84,6 +91,9 @@
 
     font-size: 14px;
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .thirdLevelActive,

@@ -14,7 +14,7 @@ import styles from "./Menu.module.css";
 
 export const Menu = () => {
   const [firstCategory, setFirstCategory] = useState<TopLevelCategory>();
-
+  const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
   const variants = {
     visible: {
       transition: {
@@ -67,6 +67,7 @@ export const Menu = () => {
       setMenu(
         menu.map((m) => {
           if (m._id.secondCategory === secondCategory) {
+            setAnnounce(m.isOpened ? 'closed' : "opened")
             m.isOpened = !m.isOpened;
           }
           return m;
@@ -165,9 +166,15 @@ export const Menu = () => {
             }
             return (
               <li key={m._id.secondCategory}>
-                <div tabIndex={0} onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)} className={styles.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)}>
+                <button
+                  tabIndex={0}
+                  onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)}
+                  className={styles.secondLevel}
+                  onClick={() => openSecondLevel(m._id.secondCategory)}
+                  aria-expanded={m.isOpened}
+                >
                   {m._id.secondCategory}
-                </div>
+                </button>
                 <motion.ul
                   layout
                   variants={variants}
@@ -207,5 +214,7 @@ export const Menu = () => {
   };
 
   //   console.log(menu);
-  return <nav role="navigation">{buildFirstLevel()}</nav>;
+  return <nav role="navigation" className={styles.nav}>
+    {announce && <span className="visualyHidden">{announce === "opened" ? "развернуто" : "свернуто"} </span>}
+    {buildFirstLevel()}</nav>;
 };
