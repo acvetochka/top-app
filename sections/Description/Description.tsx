@@ -8,9 +8,11 @@ import { SortEnum } from "@/components/Sort/Sort.props";
 import { Product } from "../Product/Product";
 import { sortReducer } from "@/helpers/sort.reducer";
 import styles from "./Description.module.css";
+import { useReducedMotion } from "framer-motion";
 
 export const Description = ({ page, products }: DescriptionProps): JSX.Element => {
   const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
+  const shouldReduceMotion = useReducedMotion();
 
   const sortProducts = (sort: SortEnum) => {
     dispatchSort({ type: sort });
@@ -31,7 +33,7 @@ export const Description = ({ page, products }: DescriptionProps): JSX.Element =
         )}
         <Sort sort={sort} setSort={sortProducts} />
       </div>
-      <div>{products && sortedProducts.map(p => <Product layout key={p._id} product={p} />)}</div>
+      <ul className={styles.productList}>{products && sortedProducts.map(p => <Product layout={shouldReduceMotion ? false : true} key={p._id} product={p} />)}</ul>
     </>
   );
 };

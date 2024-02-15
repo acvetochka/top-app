@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, KeyboardEvent } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import cn from "classnames";
@@ -15,9 +15,10 @@ import styles from "./Menu.module.css";
 export const Menu = () => {
   const [firstCategory, setFirstCategory] = useState<TopLevelCategory>();
   const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
+  const shouldReduceMotion = useReducedMotion();
   const variants = {
     visible: {
-      transition: {
+      transition: shouldReduceMotion ? {} : {
         when: "beforeChildren",
         staggerChildren: 0.1,
       },
@@ -34,7 +35,7 @@ export const Menu = () => {
       height: 29,
     },
     hidden: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       height: 0,
     },
   };

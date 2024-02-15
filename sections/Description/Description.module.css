@@ -11,3 +11,8 @@
         grid-template-columns: auto 1fr;
     }
 }
+
+.productList {
+    list-style: none;
+    padding: 0;
+}

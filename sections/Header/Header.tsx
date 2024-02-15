@@ -1,7 +1,7 @@
 "use client";
 
 import cn from "classnames";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { HeaderProps } from "./Header.props";
 import Logo from "@/public/logo.svg";
@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpened(false);
@@ -36,7 +37,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
       },
     },
     closed: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1: 0,
       x: "100%",
     },
   };

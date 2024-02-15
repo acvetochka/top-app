@@ -25,7 +25,7 @@ export const Product = motion(
   forwardRef(
     (
       { product, className, ...props }: ProductProps,
-      ref: ForwardedRef<HTMLDivElement>
+      ref: ForwardedRef<HTMLLIElement>
     ): JSX.Element => {
       const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 
@@ -58,7 +58,7 @@ export const Product = motion(
       }, [isReviewOpened]);
 
       return (
-        <div className={className} {...props} ref={ref}>
+        <li className={className} {...props} ref={ref}>
           <Card className={styles.product}>
             <div className={styles.logo}>
               <Image
@@ -139,7 +139,7 @@ export const Product = motion(
               <ReviewForm productId={product._id} isOpened={isReviewOpened} />
             </Card>
           </motion.div>
-        </div>
+        </li>
       );
     }
   )
