@@ -206,6 +206,7 @@ export const Menu = () => {
           className={cn(styles.thirdLevel, {
             [styles.thirdLevelActive]: `/${route}/${p.alias}` === path,
           })}
+          aria-current={`/${route}/${p.alias}` === path ? "page" : false}
         >
           {p.category}
         </Link>
