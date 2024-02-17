@@ -4,6 +4,7 @@
 import { useEffect, useState, KeyboardEvent, useRef } from "react";
 import { Noto_Sans } from "next/font/google";
 import cn from "classnames";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { Footer, Header, Sidebar } from "@/sections";
 import "./globals.css";
@@ -47,13 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <Header />
         <Sidebar className="aside" />
-        {/* <div> */}
         <main role="main">
         {children}
         </main>
-        {/* </div> */}
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-W7F2LH3F6S" />
     </html>
   );
 }
