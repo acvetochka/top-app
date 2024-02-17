@@ -17,6 +17,8 @@ export async function generateMetadata({ params }: { params: { alias: string } }
   const page = await getPage(params.alias);
   return {
     title: page?.metaTitle,
+    description: page?.metaDescription,
+    keywords: page?.tags,
   };
 }
 
