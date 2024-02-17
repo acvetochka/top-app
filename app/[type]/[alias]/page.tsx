@@ -19,6 +19,16 @@ export async function generateMetadata({ params }: { params: { alias: string } }
     title: page?.metaTitle,
     description: page?.metaDescription,
     keywords: page?.tags,
+    openGraph: {
+      title: page?.metaTitle,
+      description: page?.metaDescription,
+      locale: "ru_RU",
+      type: "website",
+    },
+    twitter: {
+      title: page?.metaTitle,
+      description: page?.metaDescription,
+    }
   };
 }
 
@@ -75,7 +85,7 @@ export default async function PageProducts({ params }: { params: { type: string;
   return (
     // <main>
 
-      <TopPage page={page} />
+    <TopPage page={page} />
 
     // </main>
   );
