@@ -39,16 +39,12 @@ export const Menu = () => {
       height: 0,
     },
   };
-  // const firstCategory: TopLevelCategory = 0;
-  // const router = useRouter();
+
   const path = usePathname();
-  // console.log(path);
-  // console.log(API);
   const [menu, setMenu] = useState<MenuItem[]>([]);
 
   useEffect(() => {
     setMenu(menu);
-    // setFirstCategory(firstCategory);
   }, [menu]);
 
   useEffect(() => {
@@ -63,7 +59,6 @@ export const Menu = () => {
   }, [path]);
 
   const openSecondLevel = (secondCategory: string) => {
-    // console.log(firstCategory);
     menu &&
       setMenu(
         menu.map((m) => {
@@ -74,7 +69,6 @@ export const Menu = () => {
           return m;
         })
       );
-    // console.log(menu);
   };
 
   const openSecondLevelKey = (key: KeyboardEvent, secondCategory: string) => {
@@ -85,56 +79,30 @@ export const Menu = () => {
   };
 
   const openFirstLevel = (category: number) => {
-    // setMenu(
     firstLevelMenu.map(
       async (m) => {
-        // setFirstCategory(
-        // console.log(m);
         if (m.id === category) {
           m.isOpened = !m.isOpened;
           const menuData = await getMenu(category);
           console.log(menuData);
           setMenu(menuData);
           setFirstCategory(category);
-          // console.log("firstLevelMenuItem", m);
-          // console.log("cATEGORY", category);
         }
-        // else {
-        //   m.isOpened = false;
-        //   // if (m.isOpened) {
-        //   //   m.isOpened = !m.isOpened;
-        //   // }
-        // }
         return m;
       }
-      // firstLevelMenu.map(async ({ id }) => {
-      //   const menuData = await getMenu(id);
-      //   console.log(menuData);
-      //   setMenu(menuData);
-      // })
     );
-    // );
-    // console.log(firstLevelMenu);
-    // );
   };
 
   const buildFirstLevel = () => {
-    // console.log(firstCategory);
     return (
       <ul className={styles.menu}>
         {firstLevelMenu.map((m) => {
-          // console.log(m);
-          // console.log(path);
-          // console.log(path.split("/")[1]);
           if (m.route.includes(path.split("/")[1])) {
-            // console.log(true);
             m.isOpened = true;
           }
           return (
             <li key={m.route} aria-expanded={m.id == firstCategory}>
-              {/* <Link href={`/${m.route}`}> */}
               <div onClick={() => openFirstLevel(m.id)}>
-                {/* <div> */}
                 <div
                   className={cn(styles.firstLevel, {
                     [styles.firstLevelActive]: m.id === firstCategory,
@@ -144,7 +112,6 @@ export const Menu = () => {
                   <span>{m.name}</span>
                 </div>
               </div>
-              {/* {m.id === firstCategory && buildSecondLevel(m)} */}
               {m.id === firstCategory && buildSecondLevel(m)}
             </li>
           );
@@ -154,14 +121,10 @@ export const Menu = () => {
   };
 
   const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
-    // console.log(menuItem);
-    // console.log(menu);
     return (
       <ul className={styles.secondBlock}>
         {menu &&
           menu.map((m) => {
-            // console.log(path.split("/")[2]);
-            // console.log(m);
             if (m.pages.map((p) => p.alias).includes(path.split("/")[2])) {
               m.isOpened = true;
             }
@@ -183,12 +146,8 @@ export const Menu = () => {
                   animate={m.isOpened ? "visible" : "hidden"}
                   className={cn(
                     styles.secondLevelBlock
-                    // {
-                    // [styles.secondLevelBlockOpened]: m.isOpened,
-                    // }
                   )}
                 >
-                  {/* <div>{menuItem.route}</div> */}
                   {buildThirdLevel(m.pages, menuItem.route, m.isOpened ?? false)}
                 </motion.ul>
               </li>
@@ -214,8 +173,7 @@ export const Menu = () => {
       </motion.li>
     ));
   };
-
-  //   console.log(menu);
+  
   return <nav role="navigation" className={styles.nav}>
     {announce && <span className="visualyHidden">{announce === "opened" ? "развернуто" : "свернуто"} </span>}
     {buildFirstLevel()}</nav>;
