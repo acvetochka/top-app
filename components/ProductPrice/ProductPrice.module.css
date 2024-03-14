@@ -1,19 +1,23 @@
 .price {
     grid-column: pricestart / priceend;
+
     white-space: nowrap;
 
 }
 
 .credit {
     grid-column: creditstart / creditend;
+
     white-space: nowrap;
 }
 
 .price,
 .credit {
     position: relative;
-    font-size: 20px;
+
     align-self: flex-end;
+
+    font-size: 20px;
 }
 
 .month {
@@ -23,7 +27,8 @@
 .oldPrice {
     margin-left: 5px;
 }
-@media screen and (max-width: 1320px) {
+
+@media screen and (width <= 1320px) {
     .price {
         grid-area: price;
     }
@@ -33,8 +38,7 @@
     }
 }
 
-@media screen and (max-width: 640px) {
-
+@media screen and (width <= 640px) {
     .price,
     .credit {
         margin-bottom: 10px;

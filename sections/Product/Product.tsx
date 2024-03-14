@@ -1,7 +1,7 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import { ProductProps } from './Product.props';
 import {
@@ -61,8 +61,9 @@ export const Product = motion(
         <li className={className} {...props} ref={ref}>
           <Card className={styles.product}>
             <div className={styles.logo}>
-              <Image
-                src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+              <img
+                // src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+                src={product.image}
                 alt={product.title}
                 width={70}
                 height={70}

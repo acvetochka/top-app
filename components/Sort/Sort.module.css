@@ -1,17 +1,20 @@
 .sortName {
   display: none;
 }
+
 .sortIcon {
   display: none;
 }
 
 .active {
-  font-weight: bold;
   color: var(--accent);
+
+  font-weight: bold;
 }
 
 .active .sortIcon {
   display: block;
+
   margin-right: 8px;
 }
 
@@ -25,13 +28,18 @@
 .sort button {
   display: grid;
   grid-template-columns: 20px 1fr;
+
   align-items: center;
   gap: 8px;
+
   cursor: pointer;
+
   border: none;
     background: none;
+
     font-size: 16px;
 }
+
 .sort button:not(.active) {
   grid-template-columns: 1fr;
 }

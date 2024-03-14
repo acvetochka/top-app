@@ -4,11 +4,13 @@
 
 .charact {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+
     padding-right: 60px;
+
     font-size: 16px;
     line-height: 2;
-    align-items: baseline;
+    grid-template-columns: auto 1fr auto;
     gap: 10px;
 }
 
@@ -17,14 +19,18 @@
 }
 
 .charactDots {
-    border-bottom: 1px dashed var(--border-color);
     margin-bottom: 5px;
+
+    border-bottom: 1px dashed var(--border-color);
 }
-@media screen and (max-width: 1320px) {
+
+@media screen and (width <= 1320px) {
     .feature {
         grid-area: feature;
+
         margin-bottom: 20px;
     }
+
 .charact {
     padding-right: 0;
 }

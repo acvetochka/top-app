@@ -1,6 +1,7 @@
 .product {
   display: grid;
   grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 40px [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] 125px [end];
+
   margin-top: 30px;
   padding: 30px;
 }
@@ -46,9 +47,10 @@
 }
 
 .title {
+  align-self: flex-end;
+
   font-size: 20px;
   font-weight: 600;
-  align-self: flex-end;
 }
 
 .rating {
@@ -61,20 +63,22 @@
   font-size: 14px;
   font-weight: 300;
 }
+
 .category {
   margin-top: 7px;
 }
 
 .description {
-  font-size: 16px;
   margin-bottom: 15px;
+
+  font-size: 16px;
 }
 
 .reviewButton {
   margin-left: 20px;
 }
 
-@media screen and (max-width: 1320px) {
+@media screen and (width <= 1320px) {
   .product {
     grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
     grid-template-areas:
@@ -93,6 +97,7 @@
 
   .logo {
     grid-area: logo;
+
     margin-bottom: 20px;
   }
 
@@ -106,6 +111,7 @@
 
   .rating {
     grid-area: rating;
+
     white-space: nowrap;
   }
 
@@ -124,6 +130,7 @@
     .rateTitle a {
       color: var(--accent);
     }
+
   .hr {
     grid-area: hr;
   }
@@ -141,7 +148,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (width <= 640px) {
   .product {
     grid-template-columns: 70px 30px 1fr;
     grid-template-areas:
@@ -180,14 +187,18 @@
 
 */ .reviews {
   overflow: hidden;
+
   padding: 30px;
 }
+
 .opened {
   visibility: visible;
+
   pointer-events: auto;
 }
 
 .closed {
   visibility: hidden;
+
   pointer-events: none;
 }

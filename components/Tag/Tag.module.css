@@ -3,11 +3,13 @@
 
   box-sizing: border-box;
   margin-right: 5px;
+
   border-radius: 20px;
 }
 
 .small {
   padding: 5px 10px;
+
   font-size: 12px;
   line-height: 12px;
 }
@@ -26,23 +28,26 @@
 .red {
   color: var(--white);
   background-color: #DE0000;
+
   font-weight: bold;
 }
 
 .gray {
   color: var(--white);
   background-color: #586d96;
+
   font-weight: bold;
 }
 
 .green {
   color: var(--green);
   background-color: var(--light-green);
+
   font-weight: bold;
 }
 
 .accent {
   color: var(--accent);
-  background: none;
-  border: 1px solid var(--accent)
+  border: 1px solid var(--accent);
+  background: none
 }

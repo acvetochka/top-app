@@ -1,12 +1,14 @@
 .menu {
-    list-style: none;
     padding: 0;
+
+    list-style: none;
 }
 
 .nav {
     overflow: hidden;
-    text-overflow: ellipsis;
+
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .firstLevel {
@@ -15,16 +17,18 @@
 
     margin-top: 20px;
 
+    cursor: pointer;
+
     font-size: 18px;
     font-weight: 500;
     line-height: 25px;
     grid-template-columns: 24px 1fr;
     gap: 20px;
-    cursor: pointer;
 }
 
 .firstLevelList {
     padding: 0;
+
     list-style: none;
 }
 
@@ -72,6 +76,7 @@
     padding: 0;
 
     list-style: none;
+
         /* display: none; */
         }
         
@@ -81,19 +86,19 @@
 
 .thirdLevel {
     display: block;
+    overflow: hidden;
 
     margin-bottom: 10px;
 
     cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     color: var(--placeholder-color);
     outline-offset: -1px;
 
     font-size: 14px;
     font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .thirdLevelActive,

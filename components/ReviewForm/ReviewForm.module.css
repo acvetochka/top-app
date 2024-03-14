@@ -1,10 +1,12 @@
 .reviewForm {
-    font-size: 14px;
     display: grid;
+    align-items: center;
+
+    font-size: 14px;
     grid-template-columns: [start] auto 1fr auto [end];
+
     /* justify-items: left; */
     gap: 20px 30px;
-    align-items: center;
 }
 
 .description,
@@ -27,10 +29,12 @@
 }
 
 .panel {
-    padding: 20px;
     position: relative;
-    border-radius: 5px;
+
     margin-top: 20px;
+    padding: 20px;
+
+    border-radius: 5px;
 }
 
 .success {
@@ -40,6 +44,7 @@
 .error {
     background: var(--light-red);
 }
+
 .successTitle {
     font-weight: bold;
 }
@@ -48,7 +53,9 @@
     position: absolute;
     top: 20px;
     right: 20px;
+
     cursor: pointer;
+
     border: none;
     background: none;
 }
@@ -56,7 +63,8 @@
 .error .close path {
     stroke: var(--orange);
 }
-@media screen and (max-width: 1100px) {
+
+@media screen and (width <= 1100px) {
     .reviewForm {
         grid-template-columns: [start] 1fr 1fr [end];
     }
@@ -69,7 +77,8 @@
         grid-column: start / end;
     }
 }
-@media screen and (max-width: 640px) {
+
+@media screen and (width <= 640px) {
     .reviewForm {
         grid-template-columns: [start] 1fr [end];
     }

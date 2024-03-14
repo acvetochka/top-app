@@ -7,21 +7,25 @@
 }
 
 .advTitle {
-    font-weight: bold;
     margin-bottom: 5px;
+
+    font-weight: bold;
 }
 
 .advantages {
-    border-left: 2px solid #1DC37E;
-    padding-left: 15px;
     margin-bottom: 20px;
+    padding-left: 15px;
+
+    border-left: 2px solid #1DC37E;
 }
 
 .disadvantages {
-    border-left: 2px solid var(--orange);
     padding-left: 15px;
+
+    border-left: 2px solid var(--orange);
 }
-@media screen and (max-width: 1320px) {
+
+@media screen and (width <= 1320px) {
     .advBlock {
         grid-area: advBlock;
     }
