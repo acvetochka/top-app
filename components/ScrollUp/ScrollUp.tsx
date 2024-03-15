@@ -1,8 +1,8 @@
 "use client";
 
-import cn from "classnames";
+// import cn from "classnames";
 
-import UpIcon from "@/public/up.svg";
+// import UpIcon from "@/public/up.svg";
 import styles from "./ScrollUp.module.css";
 import { useScrollY } from "@/hooks/useScrollY";
 import { motion, useAnimation } from "framer-motion";

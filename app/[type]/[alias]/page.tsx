@@ -2,6 +2,7 @@
 
 import { getMenu } from "@/api/menu";
 import { getPage } from "@/api/page";
+import Error404 from "@/app/404";
 // import { getProduct } from "@/api/product";
 import { firstLevelMenu } from "@/helpers/firstLevelMenu";
 import { MenuItem } from "@/interfaces/menu.interface";
@@ -9,7 +10,7 @@ import { TopPage } from "@/sections";
 // import { ProductModel } from "@/interfaces/product.interface";
 // import { Description } from "@/sections/Description/Description";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+// import { notFound } from "next/navigation";
 // import { useEffect, useState } from "react";
 // import { ParsedUrlQuery } from "querystring";
 
@@ -53,7 +54,8 @@ export default async function PageProducts({ params }: { params: { type: string;
   const page = await getPage(params.alias);
 
   if (!page) {
-    notFound();
+    // notFound();
+    <Error404/>;
   }
 
   // const [products, setProducts] = useState<ProductModel[]>([]);
@@ -79,13 +81,13 @@ export default async function PageProducts({ params }: { params: { type: string;
   //   setFirstCategory(page.firstCategory);
   // }
 
-  console.log(page.category);
+  // console.log(page.category);
   // console.log("page", page);
 
   return (
     // <main>
-
-    <TopPage page={page} />
+page && <TopPage page={page} />
+    
 
     // </main>
   );

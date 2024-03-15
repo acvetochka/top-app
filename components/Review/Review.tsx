@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { uk } from "date-fns/locale";
 import { Rating } from "../Rating/Rating";
 
-export const Review = ({ review, className, ...props }: ReviewProps) => {
+export const Review = ({ review, ...props }: ReviewProps) => {
   const { name, title, description, createdAt, rating } = review;
   return (
     <div className={styles.review} {...props}>

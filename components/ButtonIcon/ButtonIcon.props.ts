@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import up from "@/public/up.svg";
 import menu from "@/public/menu.svg";
 import close from "@/public/menuClose.svg";

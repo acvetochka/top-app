@@ -41,7 +41,9 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
         setError('Что-то пошло не так');
       }
     } catch (e) {
+      if (e instanceof Error) {
       setError(e.message);
+      }
     }
   };
 
